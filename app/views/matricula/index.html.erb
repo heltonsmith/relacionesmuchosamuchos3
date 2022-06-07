@@ -1,0 +1,18 @@
+
+<h1>Matricula de alumnos</h1>
+
+<%= form_with url: "/matricula/new", method: :get do |f| %>
+    <h1>Alumnos</h1>
+    <%= select(nil, "mat_al", Alumno.all.collect {|s| [ s.name, s.id ] })%>
+
+    <h1>Asignaturas</h1>
+    <%= select(nil, "mat_as", Asignatura.all.collect {|c| [ c.name, c.id ] })%>
+    <br><br>
+    <%= f.submit "Matricular" %>
+<% end %>
+
+
+<br><br>
+<hr>
+<%= link_to "Crear Alumnos", alumnos_path %> <br>
+<%= link_to "Crear Asignaturas", asignaturas_path %> <br>
